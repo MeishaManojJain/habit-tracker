@@ -1,12 +1,17 @@
 public class Habit {
+    //Data Members
     private String name;
     private int hoursPerformed;
+    private int lastPerformed;
+    private int streak;
 
 
     //Constructor
     Habit(String n) {
         name = n;
         hoursPerformed = 0;
+        lastPerformed = 0;
+        streak = 0;
     }
 
     public String getName() {
@@ -17,7 +22,20 @@ public class Habit {
         return hoursPerformed;
     }
 
-    void addHours(int hours) {
+    public int getStreak() {
+        return streak;
+    }
+
+    void addHours(int hours, int currentDay) {
+
         hoursPerformed += hours;
+        if (lastPerformed + 1 == currentDay) {
+            streak++;
+        } else if (lastPerformed != currentDay) {
+            streak = 1;
+        }
+        lastPerformed = currentDay;
+
+
     }
 }
