@@ -1,27 +1,12 @@
 # GoodHabits
 
-A simple habit tracker made in Java.
+A command-line habit tracker written in Java.
 
-## What it does
+Current features:
+- Create habits
+- Add hours to a habit
+- View hours for all habits
 
-- Lets you create multiple habits.
-- Stores the number of hours spent on each habit.
-- Shows the hours for all habits.
-- Uses a simple menu in the terminal.
+Made using Java, IntelliJ IDEA and Git.
 
-## Built with
-
-- Java
-- IntelliJ IDEA
-- Git
-
-## Running the project
-
-Run `Main.java`.
-
-## Things I want to add
-
-- Save data so it isn't lost after closing the program.
-- Edit or delete habits.
-- Track progress by day.
-- Better input validation.
+I'm planning to add file saving and more features as I continue working on the project.
