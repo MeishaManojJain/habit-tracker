@@ -86,4 +86,89 @@ public class HabitTracker {
             habits.get(habitNumber - 1).addHours(hours, day);
         }
     }
+
+    void displayStatistics() {
+        int n = habits.size();
+        if (n == 0) {
+            System.out.println("No habits to display! Create a habit first.");
+            return;
+        }
+
+        System.out.println("Total Habits: " + n);
+        System.out.println("Total Hours: " + totalHours());
+        System.out.println("Average Hours per Habit: " + (double) totalHours() / n);
+
+        System.out.println("\nMost Time Spent:");
+        ArrayList<Integer> maxHours = highestTimeSpent();
+        for (int i = 0; i < maxHours.size(); i++) {
+            int index = maxHours.get(i);
+            System.out.println(habits.get(index).getName());
+            System.out.println("Hours performed: " + habits.get(index).getHoursPerformed());
+        }
+
+        System.out.println("\nLongest Streak:");
+        ArrayList<Integer> maxStreak = highestStreak();
+        for (int i = 0; i < maxStreak.size(); i++) {
+            int index = maxStreak.get(i);
+            System.out.println(habits.get(index).getName());
+            System.out.println("Streak: " + habits.get(index).getStreak());
+        }
+    }
+
+    int totalHours() {
+        int sum = 0;
+        int n = habits.size();
+        for (int i = 0; i < n; i++) {
+            sum += habits.get(i).getHoursPerformed();
+        }
+        return sum;
+    }
+
+    ArrayList<Integer> highestTimeSpent() {
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        if (habits.size() == 0) {
+            return ans;
+        }
+
+        int maxHours = habits.get(0).getHoursPerformed();
+
+        for (int i = 0; i < habits.size(); i++) {
+            int currentHours = habits.get(i).getHoursPerformed();
+
+            if (currentHours > maxHours) {
+                maxHours = currentHours;
+                ans.clear();
+                ans.add(i);
+            } else if (currentHours == maxHours) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
+
+    ArrayList<Integer> highestStreak() {
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        if (habits.size() == 0) {
+            return ans;
+        }
+
+        int maxStreak = habits.get(0).getStreak();
+
+        for (int i = 0; i < habits.size(); i++) {
+            int currentStreak = habits.get(i).getStreak();
+
+            if (currentStreak > maxStreak) {
+                maxStreak = currentStreak;
+                ans.clear();
+                ans.add(i);
+            } else if (currentStreak == maxStreak) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
 }

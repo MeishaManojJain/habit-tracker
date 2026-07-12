@@ -1,17 +1,22 @@
-# GoodHabits
+# Good Habits
 
-A simple habit tracker written in Java.
+A Java console application for tracking daily habits.
 
-Current features:
+## Features
 
-- Add habits
-- Delete habits
-- Rename habits
-- Add hours to habits
+- Add, delete, and rename habits
+- Log hours spent on each habit
 - Track daily streaks
-- Move to the next day
-- View hours and streaks
+- View statistics such as total hours, average hours, highest hours, and longest streak
 
-Built using Java, IntelliJ IDEA and Git.
+## Files
 
-More features will be added as I continue improving the project.
+- `Main.java` - menu and user interaction
+- `Habit.java` - represents a habit
+- `HabitTracker.java` - manages all habits and statistics
+
+## Future Improvements
+
+- Save data to a file
+- Use real calendar dates
+- Add goals and reminders

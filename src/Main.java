@@ -17,7 +17,7 @@ public class Main {
         //Menu loop
         int choice = -1;
         while (choice != 0) {
-            //Menu
+            //Main Menu
             System.out.println("\nDay: " + day);
             System.out.println("**** MAIN MENU ****");
             System.out.println("1. Manage Habits\n" +
@@ -26,12 +26,12 @@ public class Main {
                     "0. Exit");
 
             //Input the choice
+            System.out.print("\nEnter your choice: ");
             choice = input.nextInt();
             switch (choice) {
                 case 1:
                     manageHabitsMenu(h1);
                     break;
-
                 case 2:
                     trackProgressMenu(h1, day);
                     break;
@@ -45,10 +45,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Please enter a number between 0-3");
-
             }
-
-
         }
     }
 
@@ -58,6 +55,9 @@ public class Main {
                 "2. Delete Habit\n" +
                 "3. Rename Habit\n" +
                 "4. Back");
+
+        //Input the choice
+        System.out.print("\nEnter your choice: ");
         int choice;
         choice = input.nextInt();
         switch (choice) {
@@ -112,6 +112,8 @@ public class Main {
         System.out.println("5. Statistics");
         System.out.println("6. Back");
 
+        //Input the choice
+        System.out.print("\nEnter your choice: ");
         int choice = input.nextInt();
 
         switch (choice) {
@@ -140,8 +142,7 @@ public class Main {
                 break;
 
             case 5:
-                // Statistics
-                System.out.println("Coming soon");
+                h1.displayStatistics();
                 break;
 
             case 6:
