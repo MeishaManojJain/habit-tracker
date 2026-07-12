@@ -5,19 +5,9 @@ public class Main {
 
         //Create a new scanner object
         Scanner input = new Scanner(System.in);
+        HabitTracker h1 = new HabitTracker();
 
-        //Input number of habits to keep track of.
-        int noOfHabits;
-        System.out.print("Enter number of habits: ");
-        noOfHabits = input.nextInt();
-        Habit[] habits = new Habit[noOfHabits];
-
-        //Input habit names
-        for (int i = 0; i < noOfHabits; i++) {
-            System.out.print("Enter Habit: " + (i + 1) + ": ");
-            String name = input.next();
-            habits[i] = new Habit(name);
-        }
+        //Variable to track day
         int day = 1;
 
         //Menu loop
@@ -26,56 +16,64 @@ public class Main {
             //Menu
             System.out.println("\nDay: " + day);
             System.out.println("**** MENU ****");
-            System.out.println("1. See hours performed of all habits");
-            System.out.println("2. Add hours");
-            System.out.println("3. Next Day");
-            System.out.println("4. See streaks of all habit");
+            System.out.println("1. Add a habit");
+            System.out.println("2. Delete a habit");
+            System.out.println("3. See hours performed of all habits");
+            System.out.println("4. Add hours");
+            System.out.println("5. Next Day");
+            System.out.println("6. See streaks of all habit");
             System.out.println("0. Quit the program\n");
 
+            //Input the choice
             choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    //Iterate through all habits and print hours performed
-                    for (int i = 0; i < noOfHabits; i++) {
-                        System.out.println("\nHabit " + (i + 1) + ": " + habits[i].getName());
-                        System.out.println("Hours performed: " + habits[i].getHoursPerformed());
-                    }
+                    System.out.print("Enter Habit name: ");
+                    String name = input.next();
+                    h1.addHabit(name);
                     break;
-                case 2:
-                    int pickHabit;
 
-                    for (int i = 0; i < noOfHabits; i++) {
-                        System.out.println("Habit " + (i + 1) + ": " + habits[i].getName());
-                    }
-                    //Input the habit
-                    System.out.println("Select the habit you want to add hours to: ");
-                    pickHabit = input.nextInt();
-                    if (pickHabit <= 0 || pickHabit > noOfHabits) {
-                        System.out.println("Please enter a valid habit number.");
-                    } else {
-                        int hours;
-                        System.out.print("Enter number of hours: ");
-                        hours = input.nextInt();
-                        habits[pickHabit - 1].addHours(hours, day);
-                    }
+                case 2:
+                    //Display all habits to choose from
+                    h1.displayHabits();
+
+                    //Input the habit number
+                    int choose;
+                    System.out.println("Select the habit you want to delete: ");
+                    choose = input.nextInt();
+                    h1.deleteHabit(choose);
                     break;
                 case 3:
+                    h1.displayHoursPerformed();
+                    break;
+                case 4:
+                    //Display all habits to choose from
+                    h1.displayHabits();
+                    //Input the habit number
+                    int pickHabit;
+                    System.out.println("Select the habit you want to add hours to: ");
+                    pickHabit = input.nextInt();
+
+                    //Input habit hours
+                    int hours;
+                    System.out.println("Enter number of hours: ");
+                    hours = input.nextInt();
+
+                    h1.addHoursToAHabit(pickHabit, hours, day);
+                    break;
+                case 5:
                     //Next day
                     day++;
                     break;
-                case 4:
-                    //Iterate thorugh all the elements and prink streak
-                    for (int i = 0; i < noOfHabits; i++) {
-                        System.out.println("\nHabit " + (i + 1) + ": " + habits[i].getName());
-                        System.out.println("Streak: " + habits[i].getStreak());
-                    }
+                case 6:
+                    h1.displayStreak();
                     break;
                 case 0:
                     System.out.println("\n\nThank You for using the program");
                     System.out.println("Quiting");
                     break;
                 default:
-                    System.out.println("Please enter a number between 1-3");
+                    System.out.println("Please enter a number between 0-6");
 
             }
 

@@ -27,7 +27,11 @@ public class Habit {
     }
 
     void addHours(int hours, int currentDay) {
-
+        if (hours < 0) {
+            System.out.println("Please enter a valid number.");
+            return;
+        }
+        //Streak logic
         hoursPerformed += hours;
         if (lastPerformed + 1 == currentDay) {
             streak++;
