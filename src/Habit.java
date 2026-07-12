@@ -22,6 +22,10 @@ public class Habit {
         return hoursPerformed;
     }
 
+    public void changeName(String n) {
+        name = n;
+    }
+
     public int getStreak() {
         return streak;
     }

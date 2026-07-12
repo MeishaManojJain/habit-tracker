@@ -1,10 +1,17 @@
 # GoodHabits
 
-This is a small Java project I'm building to practice OOP, Git and IntelliJ.
+A simple habit tracker written in Java.
 
-Right now it can:
-- Create habits
-- Add hours to a habit
-- Show the hours for each habit
+Current features:
 
-More features will be added as I continue working on it.
+- Add habits
+- Delete habits
+- Rename habits
+- Add hours to habits
+- Track daily streaks
+- Move to the next day
+- View hours and streaks
+
+Built using Java, IntelliJ IDEA and Git.
+
+More features will be added as I continue improving the project.
